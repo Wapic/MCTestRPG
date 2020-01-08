@@ -5,6 +5,8 @@ import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
+
+import se.spreadthebread.mctestrpg.App;
 import se.spreadthebread.mctestrpg.storage.PlayerData;
 import se.spreadthebread.mctestrpg.storage.PlayerExp;
 
@@ -15,13 +17,15 @@ public abstract class Skill implements Listener{
     private final Material item;
     private final int defaultExp;
     PlayerData pData;
+    private final boolean isCombatSkill;
 
-    public Skill(final String name, final Material item, final int id, final int defaultExp, PlayerData pData){
+    public Skill(final String name, final Material item, final int id, final int defaultExp, PlayerData pData, final boolean isCombatSkill){
         this.id = id;
         this.name = name;
         this.item = item;
         this.defaultExp = defaultExp;
         this.pData = pData;
+        this.isCombatSkill = isCombatSkill;
     }
 
     /**
@@ -30,6 +34,10 @@ public abstract class Skill implements Listener{
      */
     public int getId(){
         return id;
+    }
+
+    public boolean isCombatSkill(){
+        return isCombatSkill;
     }
 
     /**
@@ -54,8 +62,15 @@ public abstract class Skill implements Listener{
      */
     public void setCombatExp(Player player){
         int level = pData.xpToLevel(getPlayerExp(player).getCombatExp());
-        int combatExp = (getPlayerExp(player).getRangedExp() + getPlayerExp(player).getMeleeExp() + getPlayerExp(player).getDefenseExp() + getPlayerExp(player).getMagicExp()) / 4;
-        getPlayerExp(player).setCombatExp(combatExp);
+        int exp = 0;
+        int count = 0;
+        for(Skill s : App.skillManager.skills){
+            if(s.isCombatSkill){
+                exp = exp + s.getCurrentExp(player);
+                count++;
+            }
+        }
+        getPlayerExp(player).setCombatExp(exp / count);
         levelUpEvent(player, level);
     }
 

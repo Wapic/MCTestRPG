@@ -18,7 +18,7 @@ public class Digging extends Skill implements Listener {
     PlayerData pData;
 
     public Digging(PlayerData pData) {
-        super("Digging", Material.STONE_SHOVEL, 4, 1, pData);
+        super("Digging", Material.STONE_SHOVEL, 4, 1, pData, false);
         this.pData = pData;
         initDiggingMats();
     }

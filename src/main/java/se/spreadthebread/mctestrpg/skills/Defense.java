@@ -21,7 +21,7 @@ public class Defense extends Skill implements Listener {
     PlayerData pData;
 
     public Defense(PlayerData pData) {
-        super("Defense", Material.SHIELD, 3, 1, pData);
+        super("Defense", Material.SHIELD, 3, 1, pData, true);
         this.pData = pData;
         causes.add(DamageCause.ENTITY_ATTACK);
         causes.add(DamageCause.ENTITY_EXPLOSION);

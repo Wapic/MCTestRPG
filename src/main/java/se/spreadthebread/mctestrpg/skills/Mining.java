@@ -18,7 +18,7 @@ public class Mining extends Skill implements Listener {
     ArrayList<Material> mats = new ArrayList<Material>();
 
     public Mining(PlayerData pData) {
-        super("Mining", Material.STONE_PICKAXE, 6, 1, pData);
+        super("Mining", Material.STONE_PICKAXE, 6, 1, pData, false);
         this.pData = pData;
         initMiningMats();
     }

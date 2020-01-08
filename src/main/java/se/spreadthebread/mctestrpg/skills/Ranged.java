@@ -19,7 +19,7 @@ public class Ranged extends Skill implements Listener{
     PlayerData pData;
 
     public Ranged(PlayerData pData) {
-        super("Ranged", Material.BOW, 1, 1, pData);
+        super("Ranged", Material.BOW, 1, 1, pData, true);
         this.pData = pData;
     }
 

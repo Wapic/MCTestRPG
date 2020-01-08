@@ -15,7 +15,7 @@ public class Smithing extends Skill implements Listener {
     PlayerData pData;
 
     public Smithing(PlayerData pData) {
-        super("Smithing", Material.FURNACE, 8, 1, pData);
+        super("Smithing", Material.FURNACE, 8, 1, pData, false);
         this.pData = pData;
     }
 

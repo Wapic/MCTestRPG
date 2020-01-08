@@ -16,7 +16,7 @@ public class Melee extends Skill implements Listener{
     PlayerData pData;
 
     public Melee(PlayerData pData) {
-        super("Melee", Material.STONE_SWORD, 2, 1, pData);
+        super("Melee", Material.STONE_SWORD, 2, 1, pData, true);
         this.pData = pData;
     }
 

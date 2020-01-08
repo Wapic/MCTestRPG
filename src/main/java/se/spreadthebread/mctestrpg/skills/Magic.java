@@ -33,7 +33,7 @@ public class Magic extends Skill implements Listener {
     BukkitTask task;
 
     public Magic(PlayerData pData) {
-        super("Magic", Material.STICK, 7, 1, pData);
+        super("Magic", Material.STICK, 7, 1, pData, true);
         this.pData = pData;
     }
 
