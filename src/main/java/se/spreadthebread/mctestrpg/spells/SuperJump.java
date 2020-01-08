@@ -17,6 +17,5 @@ public class SuperJump extends Spell {
 	public void getEffect(Player player) {
 		player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 5, 5));
 	}
-
 	
 }

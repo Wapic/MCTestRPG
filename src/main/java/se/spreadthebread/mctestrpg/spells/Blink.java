@@ -14,6 +14,9 @@ public class Blink extends Spell {
         super(0, "Blink", "RRL", 1);
     }
 
+    /*
+    TODO: update plugin for newer version and replace code 
+    */
     @Override
 	public void getEffect(Player player) {
         Location loc = player.getLocation();

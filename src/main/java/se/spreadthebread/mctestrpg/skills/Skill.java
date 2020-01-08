@@ -48,13 +48,19 @@ public abstract class Skill implements Listener{
         return defaultExp;
     }
 
+    /**
+     * Sets the combat experience of the player to be equal to all combat skills divided by 4
+     * @param player
+     */
     public void setCombatExp(Player player){
         int level = pData.xpToLevel(getPlayerExp(player).getCombatExp());
         int combatExp = (getPlayerExp(player).getRangedExp() + getPlayerExp(player).getMeleeExp() + getPlayerExp(player).getDefenseExp() + getPlayerExp(player).getMagicExp()) / 4;
         getPlayerExp(player).setCombatExp(combatExp);
         levelUpEvent(player, level);
     }
+
     /**
+     * TODO: improve code
      * Check if previousLevel(level before applying experience) is greater than the current level
      * if so notify the player that they have leveled up
      * @param player object

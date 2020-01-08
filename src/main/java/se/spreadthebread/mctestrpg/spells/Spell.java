@@ -33,4 +33,5 @@ public abstract class Spell {
     }
 
     public abstract void getEffect(Player player);
+    
 }
