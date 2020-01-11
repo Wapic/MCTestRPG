@@ -36,6 +36,10 @@ public abstract class Skill implements Listener{
         return id;
     }
 
+    /**
+     * Check if skill is a combat skill
+     * @return
+     */
     public boolean isCombatSkill(){
         return isCombatSkill;
     }
@@ -110,8 +114,9 @@ public abstract class Skill implements Listener{
      * @param player object
      * @return Skills current level
      */
-    public abstract int getCurrentLevel(Player player);
-
+    public int getCurrentLevel(Player player) {
+        return pData.xpToLevel(getCurrentExp(player));
+    }
     /**
      * Gets the Item used to represent this skill
      * @return Skill item

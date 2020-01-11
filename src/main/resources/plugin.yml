@@ -2,7 +2,6 @@ main: se.spreadthebread.mctestrpg.App
 name: MCTestRPG
 version: 0.1
 author: Wapic
-api-version: 1.13
 commands:
   troll:
     description: Troll players

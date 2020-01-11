@@ -28,11 +28,6 @@ public class Mining extends Skill implements Listener {
         return pData.getPlayerExp(player.getUniqueId()).getMiningExp();
     }
 
-    @Override
-    public int getCurrentLevel(Player player) {
-        return pData.xpToLevel(getCurrentExp(player));
-    }
-
     public void initMiningMats(){
         mats.add(Material.STONE);
         mats.add(Material.COAL_ORE);

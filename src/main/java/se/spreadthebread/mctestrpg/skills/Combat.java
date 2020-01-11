@@ -17,9 +17,5 @@ public class Combat extends Skill{
     public int getCurrentExp(Player player) {
         return pData.getPlayerExp(player.getUniqueId()).getCombatExp();
     }
-    
-    @Override
-    public int getCurrentLevel(Player player) {
-        return pData.xpToLevel(getCurrentExp(player));
-    }
+
 }

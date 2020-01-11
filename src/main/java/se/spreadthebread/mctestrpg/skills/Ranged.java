@@ -27,11 +27,6 @@ public class Ranged extends Skill implements Listener{
     public int getCurrentExp(Player player) {
         return pData.getPlayerExp(player.getUniqueId()).getRangedExp();
     }
-    
-    @Override
-    public int getCurrentLevel(Player player){
-        return pData.xpToLevel(getCurrentExp(player));
-    }
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void event(EntityDamageByEntityEvent event){

@@ -28,11 +28,6 @@ public class Digging extends Skill implements Listener {
         return pData.getPlayerExp(player.getUniqueId()).getDiggingExp();
     }
 
-    @Override
-    public int getCurrentLevel(Player player) {
-        return pData.xpToLevel(getCurrentExp(player));
-    }
-
     public void initDiggingMats() {
         mats.add(Material.DIRT);
         mats.add(Material.GRAVEL);

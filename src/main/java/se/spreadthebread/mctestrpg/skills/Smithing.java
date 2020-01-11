@@ -24,11 +24,6 @@ public class Smithing extends Skill implements Listener {
         return pData.getPlayerExp(player.getUniqueId()).getSmithingExp();
     }
 
-    @Override
-    public int getCurrentLevel(Player player) {
-        return pData.xpToLevel(getCurrentExp(player));
-    }
-
     @EventHandler
     public void event(FurnaceExtractEvent event) {
         int exp = 4 * event.getItemAmount();

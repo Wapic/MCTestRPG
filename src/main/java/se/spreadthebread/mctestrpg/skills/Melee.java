@@ -2,6 +2,8 @@ package se.spreadthebread.mctestrpg.skills;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
@@ -24,12 +26,8 @@ public class Melee extends Skill implements Listener{
     public int getCurrentExp(Player player) {
         return pData.getPlayerExp(player.getUniqueId()).getMeleeExp();
     }
-
-    @Override
-    public int getCurrentLevel(Player player){
-        return pData.xpToLevel(getCurrentExp(player));
-    }
     
+    @EventHandler(priority = EventPriority.LOWEST)
     public void event(EntityDamageByEntityEvent event){
         if(event.getDamager() instanceof Player) {
             if(event.getCause().equals(DamageCause.ENTITY_ATTACK) || event.getCause().equals(DamageCause.ENTITY_SWEEP_ATTACK)){

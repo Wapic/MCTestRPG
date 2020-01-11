@@ -36,11 +36,6 @@ public class Woodcutting extends Skill implements Listener {
         return pData.getPlayerExp(player.getUniqueId()).getWoodcuttingExp();
     }
 
-    @Override
-    public int getCurrentLevel(Player player) {
-        return pData.xpToLevel(getCurrentExp(player));
-    }
-
     @EventHandler
     public void onPlayerCut(BlockBreakEvent event){
         if(!mats.contains(event.getBlock().getType())) return;
