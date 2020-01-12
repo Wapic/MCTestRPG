@@ -18,7 +18,7 @@ public class Digging extends Skill implements Listener {
     PlayerData pData;
 
     public Digging(PlayerData pData) {
-        super("Digging", Material.STONE_SHOVEL, 4, 1, pData);
+        super("Digging", Material.STONE_SHOVEL, 4, 1, pData, false);
         this.pData = pData;
         initDiggingMats();
     }
@@ -26,11 +26,6 @@ public class Digging extends Skill implements Listener {
     @Override
     public int getCurrentExp(Player player) {
         return pData.getPlayerExp(player.getUniqueId()).getDiggingExp();
-    }
-
-    @Override
-    public int getCurrentLevel(Player player) {
-        return pData.xpToLevel(getCurrentExp(player));
     }
 
     public void initDiggingMats() {

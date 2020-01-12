@@ -19,18 +19,13 @@ public class Ranged extends Skill implements Listener{
     PlayerData pData;
 
     public Ranged(PlayerData pData) {
-        super("Ranged", Material.BOW, 1, 1, pData);
+        super("Ranged", Material.BOW, 1, 1, pData, true);
         this.pData = pData;
     }
 
     @Override
     public int getCurrentExp(Player player) {
         return pData.getPlayerExp(player.getUniqueId()).getRangedExp();
-    }
-    
-    @Override
-    public int getCurrentLevel(Player player){
-        return pData.xpToLevel(getCurrentExp(player));
     }
 
     @EventHandler(priority = EventPriority.LOWEST)

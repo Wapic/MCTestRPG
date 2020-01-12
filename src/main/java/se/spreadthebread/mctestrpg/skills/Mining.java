@@ -18,7 +18,7 @@ public class Mining extends Skill implements Listener {
     ArrayList<Material> mats = new ArrayList<Material>();
 
     public Mining(PlayerData pData) {
-        super("Mining", Material.STONE_PICKAXE, 6, 1, pData);
+        super("Mining", Material.STONE_PICKAXE, 6, 1, pData, false);
         this.pData = pData;
         initMiningMats();
     }
@@ -26,11 +26,6 @@ public class Mining extends Skill implements Listener {
     @Override
     public int getCurrentExp(Player player) {
         return pData.getPlayerExp(player.getUniqueId()).getMiningExp();
-    }
-
-    @Override
-    public int getCurrentLevel(Player player) {
-        return pData.xpToLevel(getCurrentExp(player));
     }
 
     public void initMiningMats(){

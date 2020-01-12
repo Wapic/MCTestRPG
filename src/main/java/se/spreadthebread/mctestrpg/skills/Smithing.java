@@ -15,18 +15,13 @@ public class Smithing extends Skill implements Listener {
     PlayerData pData;
 
     public Smithing(PlayerData pData) {
-        super("Smithing", Material.FURNACE, 8, 1, pData);
+        super("Smithing", Material.FURNACE, 8, 1, pData, false);
         this.pData = pData;
     }
 
     @Override
     public int getCurrentExp(Player player) {
         return pData.getPlayerExp(player.getUniqueId()).getSmithingExp();
-    }
-
-    @Override
-    public int getCurrentLevel(Player player) {
-        return pData.xpToLevel(getCurrentExp(player));
     }
 
     @EventHandler

@@ -17,7 +17,7 @@ public class Woodcutting extends Skill implements Listener {
     PlayerData pData;
 
     public Woodcutting(PlayerData pData) {
-        super("Woodcutting", Material.STONE_AXE, 5, 1, pData);
+        super("Woodcutting", Material.STONE_AXE, 5, 1, pData, false);
         this.pData = pData;
         initWoodcuttingMats();
     }
@@ -34,11 +34,6 @@ public class Woodcutting extends Skill implements Listener {
     @Override
     public int getCurrentExp(Player player) {
         return pData.getPlayerExp(player.getUniqueId()).getWoodcuttingExp();
-    }
-
-    @Override
-    public int getCurrentLevel(Player player) {
-        return pData.xpToLevel(getCurrentExp(player));
     }
 
     @EventHandler

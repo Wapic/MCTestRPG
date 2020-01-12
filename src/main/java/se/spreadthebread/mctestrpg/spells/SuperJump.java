@@ -18,6 +18,5 @@ public class SuperJump extends Spell {
 		Vector sVelocity = ((Entity) player).getVelocity();
 		((Entity) player).setVelocity(new Vector(sVelocity.getX(), sVelocity.getY()*5,sVelocity.getZ()));
 	}
-
 	
 }

@@ -1,7 +1,6 @@
 package se.spreadthebread.mctestrpg.spells;
 
 import org.bukkit.Location;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
@@ -14,6 +13,7 @@ public class Blink extends Spell {
         super(0, "Blink", "RRL", 1);
     }
 
+    //use player.setVelocity() here maybe?
     @Override
 	public void getEffect(Player player) {
         Location loc = player.getLocation();
@@ -23,6 +23,5 @@ public class Blink extends Spell {
         dir.multiply(6);
         loc.add(dir);
         player.teleport(loc.add(0, 2, 0));
-        player.playSound(loc, Sound.ENTITY_ENDERMAN_TELEPORT, 1f, 1f);
     }
 }

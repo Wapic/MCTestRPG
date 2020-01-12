@@ -11,6 +11,7 @@ public class SpellManager {
     public void setup(){
         spells.add(new Blink());
         spells.add(new Heal());
+        spells.add(new SuperJump());
     }
     
 }

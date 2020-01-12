@@ -29,22 +29,17 @@ public class Magic extends Skill implements Listener {
 
     PlayerData pData;
     HashMap<UUID, String> combo = new HashMap<UUID, String>();
-    BossBar boss = Bukkit.createBossBar("NO COMBO FOUND", BarColor.GREEN, BarStyle.SEGMENTED_6, BarFlag.PLAY_BOSS_MUSIC);
+    BossBar boss = Bukkit.createBossBar("NO COMBO FOUND", BarColor.GREEN, BarStyle.SEGMENTED_6);
     BukkitTask task;
 
     public Magic(PlayerData pData) {
-        super("Magic", Material.STICK, 7, 1, pData);
+        super("Magic", Material.STICK, 7, 1, pData, true);
         this.pData = pData;
     }
 
     @Override
     public int getCurrentExp(Player player) {
         return pData.getPlayerExp(player.getUniqueId()).getMagicExp();
-    }
-
-    @Override
-    public int getCurrentLevel(Player player) {
-        return pData.xpToLevel(getCurrentExp(player));
     }
 
     public String getCombo(Player player) {
@@ -89,24 +84,22 @@ public class Magic extends Skill implements Listener {
         switch (event.getAction()) {
         case RIGHT_CLICK_AIR:
             addCombo(player, "R");
-            player.playSound(player.getLocation(), Sound.BLOCK_LEVER_CLICK, 1f, 1f);
             break;
         case RIGHT_CLICK_BLOCK:
             addCombo(player, "R");
-            player.playSound(player.getLocation(), Sound.BLOCK_LEVER_CLICK, 1f, 1f);
             break;
         case LEFT_CLICK_AIR:
             addCombo(player, "L");
-            player.playSound(player.getLocation(), Sound.BLOCK_LEVER_CLICK, 1f, 1f);
             break;
         case LEFT_CLICK_BLOCK:
             addCombo(player, "L");
-            player.playSound(player.getLocation(), Sound.BLOCK_LEVER_CLICK, 1f, 1f);
             break;
         default:
             System.out.println("Not a valid magic action");
             return;
         }
+
+        player.playSound(player.getLocation(), Sound.BLOCK_LEVER_CLICK, 1f, 1f);
 
         for(Spell s : App.spellManager.spells) {
             if(getCombo(player).equals(s.getCombo())){
