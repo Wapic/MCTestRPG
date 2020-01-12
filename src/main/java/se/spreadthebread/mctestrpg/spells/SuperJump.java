@@ -1,8 +1,8 @@
 package se.spreadthebread.mctestrpg.spells;
 
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
+import org.bukkit.util.Vector;
 
 /**
  * SuperJump
@@ -15,7 +15,8 @@ public class SuperJump extends Spell {
 
 	@Override
 	public void getEffect(Player player) {
-		player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 5, 5));
+		Vector sVelocity = ((Entity) player).getVelocity();
+		((Entity) player).setVelocity(new Vector(sVelocity.getX(), sVelocity.getY()*5,sVelocity.getZ()));
 	}
 
 	
